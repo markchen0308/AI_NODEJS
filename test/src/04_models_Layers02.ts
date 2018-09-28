@@ -104,11 +104,14 @@ const output = tf.layers.dense(config_output);
 //adding the second layer to model
 model.add(output);
 
-let learningRate = 0.1;
+//define learning rate
+let learningRate:number = 0.1;
+
 //define an optimizer
 const optimize = tf.train.sgd(learningRate);
+
 //config for model
-const config = {
+const config:tf.ModelCompileConfig = {
   optimizer: optimize,
   loss: 'meanSquaredError'
 }
