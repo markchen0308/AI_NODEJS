@@ -12,6 +12,7 @@
     "@tensorflow/tfjs": "^0.13.0",
     "@tensorflow/tfjs-node": "^0.1.17",
     "@tensorflow/tfjs-node-gpu": "^0.1.17",
-    "@types/node": "^10.10.1"
+    "@types/node": "^10.10.1",
+    "plotly": "^1.0.6"
   }
 }
