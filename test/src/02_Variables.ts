@@ -12,3 +12,8 @@ biases.print(); // output: [0, 0, 0, 0, 0]
 const updatedValues = tf.tensor1d([0, 1, 0, 1, 0]);
 biases.assign(updatedValues); // update values of biases
 biases.print(); // output: [0, 1, 0, 1, 0]
+
+
+const x = tf.variable(tf.tensor([1, 2, 3]));
+x.assign(tf.tensor([4, 5, 6]));
+x.print();

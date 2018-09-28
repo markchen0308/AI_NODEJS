@@ -7,7 +7,8 @@ import  '@tensorflow/tfjs-node';
  
 
 // Train a simple model:
-const model = tf.sequential();
+let model:tf.Sequential = tf.sequential();
+//
 model.add(tf.layers.dense({units: 100, activation: 'relu', inputShape: [10]}));
 model.add(tf.layers.dense({units: 1, activation: 'linear'}));
 model.compile({optimizer: 'sgd', loss: 'meanSquaredError'});

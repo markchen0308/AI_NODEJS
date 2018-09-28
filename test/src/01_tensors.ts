@@ -22,7 +22,53 @@ tf.scalar(3.14).print();
 tf.tensor1d([1, 2, 3]).print();
 tf.tensor2d([[1, 2], [3, 4]]).print();
 tf.tensor3d([[[1], [2]], [[3], [4]]]).print();
+tf.tensor4d([[[[1], [2]], [[3], [4]]]]).print();
+
+console.log('3x5 zeros');
 tf.zeros([3, 5]).print();
 
+console.log('2x2 ones');
+tf.ones([2, 2]).print();
+
+console.log('range');//tf.range (start, stop, step?, dtype?) 
+tf.range(0, 9, 2).print();
+
+// Create a buffer and set values at particular indices.
+console.log('buffer');
+const buffer = tf.buffer([2, 2]);//create 2x2 matrix
+buffer.set(3, 0, 0);
+buffer.set(5, 1, 0);
+// Convert the buffer back to a tensor.
+buffer.toTensor().print();
+
+console.log('complex');//tf.complex (real, imag)
+const real = tf.tensor1d([2.25, 3.25]);
+const imag = tf.tensor1d([4.75, 5.75]);
+const complex = tf.complex(real, imag);
+complex.print();
+
+console.log('get real part and imag part');
+let comp = tf.complex([-2.25, 3.25], [4.75, 5.75]);
+tf.real(comp).print();
+tf.imag(comp).print();
 
 
+
+
+console.log('clone');
+const x = tf.tensor([1, 2]);
+let y=x.clone();
+y.print();
+
+console.log('fill');//tf.fill (shape, value, dtype?) 
+tf.fill([2, 2], 4).print();
+
+
+console.log('linespace');//tf.linspace (start, stop, num)
+tf.linspace(0, 9, 10).print();
+
+console.log('onehot');//tf.oneHot (indices, depth, onValue?, offValue?)
+tf.oneHot(tf.tensor1d([0, 1,2], 'int32'), 5).print();
+
+console.log('truncatedNormal');//tf.truncatedNormal (shape, mean?, stdDev?, dtype?, seed?)
+tf.truncatedNormal([2, 2]).print();
