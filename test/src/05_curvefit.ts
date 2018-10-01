@@ -1,10 +1,8 @@
 import * as tf from '@tensorflow/tfjs';
 // Load the binding:
-//import  '@tensorflow/tfjs-node';
+//import '@tensorflow/tfjs-node';// Use '@tensorflow/tfjs-node-gpu' if running with GPU.
 
-import '@tensorflow/tfjs-node';// Use '@tensorflow/tfjs-node-gpu' if running with GPU.
-
-
+import  '@tensorflow/tfjs-node-gpu' ;
 import {generateData,iCoeff,iGenData} from './05_data';
 
 // Step 1. Set up variables, these are the things we want the model
@@ -17,8 +15,9 @@ let d = tf.variable(tf.scalar(Math.random()));
 
 // Step 2. Create an optimizer, we will use this later. You can play
 // with some of these values to see how the model performs.
-const numIterations:number = 20000;
+const numIterations:number = 10000;
 const learningRate:number = 0.01;
+const stepShow:number=100;
 const optimizer:tf.SGDOptimizer = tf.train.sgd(learningRate);
 
 // Step 3. Write our training process functions.
@@ -88,7 +87,7 @@ async function train(xs:tf.Tensor<tf.Rank>, ys:tf.Tensor<tf.Rank>, numIterations
         //let ysNormalized:tf.Tensor<tf.Rank> = pred.sub(ymin).div(yrange);
         
         let lossValue=loss(pred, ys);
-        if((iter%10000)==0)
+        if((iter%stepShow)==0)
         {
           console.log('iter='+iter +'; loss='+lossValue.dataSync()[0]);
           console.log('a='+a.dataSync()[0]);
