@@ -2,10 +2,11 @@
 
 
 //import { remote } from 'electron';
+//import {remote} from 'electron';
 
-let remote = require('electron').remote;
+let browserWindow = require('electron').remote.BrowserWindow;
 let axios = require('axios');
-
+//import {BrowserWindow} from 'electron';
 
 let notifyBtn = document.getElementById('notifyBtn');
 var price = document.querySelector('h1');
@@ -20,7 +21,7 @@ notifyBtn.addEventListener('click', function (event) {
     const path = require('path');
 
     const modalPath = path.join('file://', __dirname, 'add.html');
-    let win = new remote.BrowserWindow({
+    let win = new browserWindow({
         frame: false,
         transparent: true,
         alwaysOnTop: true,

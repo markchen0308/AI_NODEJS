@@ -1,6 +1,6 @@
 const electron = require('electron');
 const path = require('path');
-const remote2 = electron.remote;
+const remote2 =  require('electron').remote;
 const closeBtn = document.getElementById('closeBtn') ;
 
 
@@ -17,6 +17,6 @@ updateBtn.addEventListener('click', function () {
     ipcRenderer.send('update-notify-value', (<HTMLInputElement>document.getElementById('notifyVal')).value);
 
   // Close this window
-  var window = remote.getCurrentWindow();
+  var window = remote2.getCurrentWindow();
   window.close();
 }) 
